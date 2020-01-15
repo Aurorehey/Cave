@@ -47,10 +47,11 @@ public class HealthMonitor : MonoBehaviour
             torchImage4.enabled = false;
         if (healthValue <= 2)
             torchImage3.enabled = false;
-        if (healthValue < 1)
+        if (healthValue <= 1)
             torchImage2.enabled = false;
-        else if (healthValue <= 0)
-            torchImage1.enabled = false;
+         if (healthValue <= 0)
+         torchImage1.enabled = false;
+
 
 
     }
