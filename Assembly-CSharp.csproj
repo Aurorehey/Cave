@@ -57,9 +57,6 @@
   <ItemGroup>
      <Compile Include="Assets\epyphany texture pack\demo\ressources\move.cs" />
      <Compile Include="Assets\epyphany texture pack\demo\ressources\rotate.cs" />
-     <Compile Include="Assets\HealthMonitor.cs" />
-     <Compile Include="Assets\HitObject.cs" />
-     <Compile Include="Assets\Restart.cs" />
      <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
      <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
@@ -68,6 +65,12 @@
      <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+     <Compile Include="Assets\Script\HealthMonitor.cs" />
+     <Compile Include="Assets\Script\HitObject.cs" />
+     <Compile Include="Assets\Script\Jouer.cs" />
+     <Compile Include="Assets\Script\Quitter.cs" />
+     <Compile Include="Assets\Script\Restart.cs" />
+     <Compile Include="Assets\Script\Url.cs" />
      <None Include="Assets\epyphany texture pack\ReadMe.txt" />
      <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
  <Reference Include="Unity.Timeline.Editor">

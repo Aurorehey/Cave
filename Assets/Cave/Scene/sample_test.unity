@@ -60542,7 +60542,6 @@ GameObject:
   - component: {fileID: 914770837}
   - component: {fileID: 914770836}
   - component: {fileID: 914770835}
-  - component: {fileID: 914770840}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -60631,19 +60630,6 @@ Transform:
   m_Father: {fileID: 1279802191}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &914770840
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 914770834}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.31020212, y: 0.3063442, z: 0.24842113}
-  m_Center: {x: 0.34489894, y: 0.37789282, z: 0.863233}
 --- !u!1 &918154869
 GameObject:
   m_ObjectHideFlags: 0

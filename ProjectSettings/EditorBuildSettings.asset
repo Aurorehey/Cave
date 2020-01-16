@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Cave/Scene/sample_test.unity
+    guid: e6f278320bc271e40b53b41ab0d63b5b
+  - enabled: 1
+    path: Assets/Cave/Scene/EncranAcceuil.unity
+    guid: 68396a4eb0875fb43a267e913166f645
+  - enabled: 1
+    path: Assets/Cave/Scene/fin plus de torch.unity
+    guid: a936bd94e6766fd45a6f514e48cc8cc3
+  - enabled: 1
+    path: Assets/Cave/Scene/Fin ours possitif.unity
+    guid: 42053ceccde3d9c418df6d238581e63f
+  - enabled: 1
+    path: "Assets/Cave/Scene/Fin ours n\xE9gatif.unity"
+    guid: dcce35bbd632d5249a6593c116bd57e0
   m_configObjects: {}
