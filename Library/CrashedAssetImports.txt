@@ -1,0 +1,2 @@
+Assets/Neanderthal 3D models and data/Grotte_Spy_3D/Spy-drone1.jpg
+Assets/Neanderthal 3D models and data/Grotte_Spy_3D/Spy_Int_decim.obj
