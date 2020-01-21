@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 
 
 public class HealthMonitor : MonoBehaviour
 {
 
-    public static int healthValue = 5;
+    public  static int healthValue = 5;
+    
 
     private Text healthText;
 
@@ -17,8 +18,12 @@ public class HealthMonitor : MonoBehaviour
 
     private Light lt;
     private RawImage torchImage1, torchImage2, torchImage3, torchImage4, torchImage5;
-    //public string MapACharger;
+    public string MapACharger;
+    public void JeRestartLeJeu()
+    {
 
+        SceneManager.LoadScene(MapACharger);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -32,14 +37,11 @@ public class HealthMonitor : MonoBehaviour
         torchImage4 = GameObject.Find("LifeImage4").GetComponent<RawImage>();
         torchImage5 = GameObject.Find("LifeImage5").GetComponent<RawImage>();
         lt = GameObject.Find("light").GetComponent<Light>();
+        
     }
 
-    //public void JeRestartLeJeu()
-    //{
-
-    //    SceneManager.LoadScene(MapACharger);
-    //}
-    // Update is called once per frame
+   
+    //Update is called once per frame
     void Update()
     {
         healthText.text = healthValue.ToString();
@@ -58,8 +60,11 @@ public class HealthMonitor : MonoBehaviour
         if (healthValue <= 1)
             torchImage2.enabled = false;
          if (healthValue <= 0)
+        {
              torchImage1.enabled = false;
-             //JeRestartLeJeu();   
+            JeRestartLeJeu();   
+
+        }
 
 
 
