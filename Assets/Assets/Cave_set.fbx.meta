@@ -362,12 +362,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Skull
-    second: {fileID: 2100000, guid: 33337ea64a9b6d64cb6db68d84bda2e5, type: 2}
+    second: {fileID: 2100000, guid: b3bc1c777838e744bb514922e96f196d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Stone_1
-    second: {fileID: 2100000, guid: 667812d5160c5db4ebe67a6aa0ef0abb, type: 2}
+    second: {fileID: 2100000, guid: 0aa32c53c4e358548901cf75cf545f23, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
