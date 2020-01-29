@@ -17,7 +17,7 @@ public class HitObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.LogWarning("test");
+        //Debug.LogWarning("test");
     }
     
     // Update is called once per frame
@@ -38,12 +38,7 @@ public class HitObject : MonoBehaviour
             
 
         ThisObject.SetActive(false);
-        
 
     }
-    
-    
-
-    
 }
 
