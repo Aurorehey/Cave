@@ -15,8 +15,12 @@ public class HealthMonitor : MonoBehaviour
     private Text healthText;
 
     public GameObject Torch;
+    public GameObject Torch1;
+
+
 
     private Light lt;
+    
     private RawImage torchImage1, torchImage2, torchImage3, torchImage4, torchImage5;
     public string MapACharger;
     public void JeRestartLeJeu()
@@ -47,6 +51,7 @@ public class HealthMonitor : MonoBehaviour
         healthText.text = healthValue.ToString();
         // adapt the size of the torch in the game
         Torch.transform.localScale = new Vector3(healthValue * 0.1f, healthValue * 0.1f, healthValue * 0.1f);
+        Torch1.transform.localScale = new Vector3(healthValue * 0.1f, healthValue * 0.1f, healthValue * 0.1f);
         // adapt the intensity of the torch light in the game
         lt.intensity = 3f * healthValue * 0.2f;
 
