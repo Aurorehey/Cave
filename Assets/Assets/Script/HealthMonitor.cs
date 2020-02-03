@@ -23,6 +23,7 @@ public class HealthMonitor : MonoBehaviour
     
     private RawImage torchImage1, torchImage2, torchImage3, torchImage4, torchImage5;
     public string MapACharger;
+
     public void JeRestartLeJeu()
     {
 
@@ -70,6 +71,8 @@ public class HealthMonitor : MonoBehaviour
             JeRestartLeJeu();   
 
         }
+
+        
 
 
 

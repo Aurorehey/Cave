@@ -6,7 +6,6 @@
 
 //public class FPCSupport : MonoBehaviour
 //{
-
 //    //public GameObject playerCam;
 //    //private UnityStandardAssets.ImageEffects.Blur blur;//pour rendre la page flou
 //    //private UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpsComp;//pour controler les mouvements du joueur.Le rendre fixe.
@@ -23,7 +22,7 @@
 //    public string InteractButton;
 //    [Header("Tag List")]
 //    public string ItemTag = "item";
-//    public string doActionTag = "DoAction";
+//    //public string doActionTag = "DoAction";
 
 //    [Header("Crosshair's data")]
 //    public string layerInteract = "Interact";
@@ -49,12 +48,12 @@
 //    private bool itemReutilisableold;
 //    public GameObject InventoryItemOptions;
 
-//    //[Header("dialogue")]
+//    [Header("dialogue")]
 //    //private Dialogue dialogue;
 //    //public GameObject DialogueBox;
 
-//    //public string Fin;
-//    //public bool finito = false;
+//    public string Fin;
+//    public bool finito = false;
 
 
 //    void Start()
@@ -94,11 +93,11 @@
 //        InventoryItemOptions.SetActive(false);
 
 
-//        if (DialogueBox == null)
-//        {
-//            DialogueBox = GameObject.Find("DialogueBox");
-//        }
-//        DialogueBox.SetActive(true);
+//        //if (DialogueBox == null)
+//        //{
+//        //    DialogueBox = GameObject.Find("DialogueBox");
+//        //}
+//        //DialogueBox.SetActive(true);
 
 
 
@@ -156,11 +155,11 @@
 
 
 //        }
-//        if (Input.GetKeyDown(KeyCode.P))
-//        {
-//            FindObjectOfType<DialogueManager>().DisplayNextSentence();
+//        //if (Input.GetKeyDown(KeyCode.P))
+//        //{
+//        //    FindObjectOfType<DialogueManager>().DisplayNextSentence();
 
-//        }
+//        //}
 
 
 
@@ -235,21 +234,21 @@
 //                }
 
 //            }
-//            if (objectInteract.tag == doActionTag)
-//            {
-//                if (!objectInteract.GetComponent<DoAction>().needItem)
-//                {
-//                    objectInteract.GetComponent<DoAction>().DoActionNow();
+//            //if (objectInteract.tag == doActionTag)
+//            //{
+//            //    if (!objectInteract.GetComponent<DoAction>().needItem)
+//            //    {
+//            //        objectInteract.GetComponent<DoAction>().DoActionNow();
 
-//                }
-//                else
-//                {
-//                    //Debug.Log("Vous ne pouvez pas faire ça sans item!");
-//                    infoDisplay.text = objectInteract.GetComponent<DoAction>().textwithoutItem;
-//                    StartCoroutine(WaitAndEraseInfo());
-//                }
+//            //    }
+//            //    else
+//            //    {
+//            //        //Debug.Log("Vous ne pouvez pas faire ça sans item!");
+//            //        infoDisplay.text = objectInteract.GetComponent<DoAction>().textwithoutItem;
+//            //        StartCoroutine(WaitAndEraseInfo());
+//            //    }
 
-//            }
+//            //}
 //        }
 //    }
 //    void TryToUse()
@@ -379,4 +378,14 @@
 
 //    }
 
+//    private void OnTriggerEnter(Collider other)
+//    {
+//        if (other.gameObject.tag == "fin")
+//        {
+//            Debug.Log("Fin");
+//            JeQuitteLeJeu();
+
+//        }
+
+//    }
 //}

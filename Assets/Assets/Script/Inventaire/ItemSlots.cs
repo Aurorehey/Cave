@@ -2,6 +2,7 @@
 //using System.Collections.Generic;
 //using UnityEngine;
 //using UnityEngine.UI;
+//using UnityEngine.EventSystems;
 
 //public class ItemSlots : MonoBehaviour
 //{
@@ -9,16 +10,18 @@
 //    public GameObject textDisplay;
 
 
-//    [Header("Item's Data")]
-//    public string ItemType;
-//    public string ItemID;
-//    public string ItemSprite;
-//    public string ItemDescription;
+//    [Header("Item's Datas")]
+//    public string itemType;
+//    public string itemID;
+//    public Sprite itemSprite;
+//    public string itemDescription;
+//    public bool itemReutilisable = false;
 
+//    // Start is called before the first frame update
 //    void Start()
 //    {
-//        GetComponent<Image>().sprite = ItemSprite;
-//        textItem.text = ItemDescription;
+//        GetComponent<Image>().sprite = itemSprite; //modification de l'image dans image(script) dans unity
+//        textItem.text = itemDescription;
 //    }
 //    private void OnEnable()
 //    {
