@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class FPCSupport : MonoBehaviour
 {
     public GameObject playerCam;
-    //private UnityStandardAssets.ImageEffects.Blur blur;//pour rendre la page flou
-    //private UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpsComp;//pour controler les mouvements du joueur.Le rendre fixe.
+    //private SnapshotShaders.Shader.EdgeBlur blur;//pour rendre la page flou
+    private UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpsComp;//pour controler les mouvements du joueur.Le rendre fixe.
 
     public Text infoDisplay;//acceder au composant d'info
     private bool infoCoroutineIsRunning = false;
@@ -18,11 +18,11 @@ public class FPCSupport : MonoBehaviour
 
 
     [Header("Button List")] //titre pour les boutons.
-    //public string InventoryButton;
+    public string InventoryButton;
     public string InteractButton;
     [Header("Tag List")]
     public string ItemTag = "item";
-    //public string doActionTag = "DoAction";
+    public string doActionTag = "DoAction";
 
     [Header("Crosshair's data")]
     public string layerInteract = "Interact";
@@ -73,7 +73,7 @@ public class FPCSupport : MonoBehaviour
 
         }
         infoDisplay.text = "";
-        //fpsComp = GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();//acceder aux composants de fps.
+        fpsComp = GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>();//acceder aux composants de fps.
         if (crosshairDisplay == null)
         {
             crosshairDisplay = GameObject.Find("Crosshair");//crosshairdisplay pas renseigner.
@@ -86,18 +86,18 @@ public class FPCSupport : MonoBehaviour
             Inventaire = GameObject.Find("ObjetarecupererImageGraphi");
         }//inventory canvas bien renseigné.
         Inventaire.SetActive(false);//quand c'est un game object on utilise setActive.
-        //if (InventoryItemOptions == null)
-        ////{
-        //    InventoryItemOptions = GameObject.Find("Inventory_Items_Options");
-        //}
-        //InventoryItemOptions.SetActive(false);
+        if (InventoryItemOptions == null)
+        {
+            InventoryItemOptions = GameObject.Find("Inventory_Items_Options");
+        }
+            InventoryItemOptions.SetActive(false);
 
 
         //if (DialogueBox == null)
         //{
         //    DialogueBox = GameObject.Find("DialogueBox");
         //}
-        //DialogueBox.SetActive(true);
+        //    DialogueBox.SetActive(true);
 
 
 
@@ -108,7 +108,7 @@ public class FPCSupport : MonoBehaviour
     //public void OnTriggerEnter(Collider other)
     //{
 
-    //   JeQuitteLeJeu();
+    //    JeQuitteLeJeu();
     //}
 
     //public void JeQuitteLeJeu()
@@ -122,17 +122,17 @@ public class FPCSupport : MonoBehaviour
     void Update()
     {
 
-        //if (Input.GetButtonDown(InventoryButton))
-        //{
-        //    ShowOnHideInventory(); //fonction appeller à chaque fois qu'on appuis sur le bouton et qui va simplifier le travaille de recherche si l'inventaire est activé.
-        //    if (holdingItem)
-        //    {
-        //        StopoldingItem();
-        //    }
-        //}
+        if (Input.GetButtonDown(InventoryButton))
+        {
+            ShowOnHideInventory(); //fonction appeller à chaque fois qu'on appuis sur le bouton et qui va simplifier le travaille de recherche si l'inventaire est activé.
+            if (holdingItem)
+            {
+                StopoldingItem();
+            }
+        }
         //controler si on appuye sur inventoryButton.
 
-        if (Input.GetButtonDown(InteractButton))  //&& !inventoryOn)
+        if (Input.GetButtonDown(InteractButton) && !inventoryOn)
         {
 
             if (infoCoroutineIsRunning)
@@ -144,14 +144,14 @@ public class FPCSupport : MonoBehaviour
 
             if (holdingItem)
             {
-                //TryToUse();
+                TryToUse();
                 TryToInteract();//lance la fonction TryToInteract.
 
             }
-            //else
-            //{
+            else
+            {
 
-            //}
+            }
 
 
         }
@@ -234,62 +234,62 @@ public class FPCSupport : MonoBehaviour
                 }
 
             }
-            //if (objectInteract.tag == doActionTag)
-            //{
-            //    if (!objectInteract.GetComponent<DoAction>().needItem)
-            //    {
-            //        objectInteract.GetComponent<DoAction>().DoActionNow();
+            if (objectInteract.tag == doActionTag)
+            {
+                if (!objectInteract.GetComponent<DoAction>().needItem)
+                {
+                    objectInteract.GetComponent<DoAction>().DoActionNow();
 
-            //    }
-            //    else
-            //    {
-            //        //Debug.Log("Vous ne pouvez pas faire ça sans item!");
-            //        infoDisplay.text = objectInteract.GetComponent<DoAction>().textwithoutItem;
-            //        StartCoroutine(WaitAndEraseInfo());
-            //    }
+                }
+                else
+                {
+                    //Debug.Log("Vous ne pouvez pas faire ça sans item!");
+                    infoDisplay.text = objectInteract.GetComponent<DoAction>().textwithoutItem;
+                    StartCoroutine(WaitAndEraseInfo());
+                }
 
-            //}
+            }
         }
     }
-    //void TryToUse()
-    //{
-    //    Ray ray = playerCam.GetComponent<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));//lancer un rayon devant le joueur de la distance pickupRnage si il y a pas un item devant lui.
-    //    RaycastHit hit;//hit point d'impact du rayon avec un colider
+    void TryToUse()
+    {
+        Ray ray = playerCam.GetComponent<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));//lancer un rayon devant le joueur de la distance pickupRnage si il y a pas un item devant lui.
+        RaycastHit hit;//hit point d'impact du rayon avec un colider
 
-    //    if (Physics.Raycast(ray, out hit, pickupRange))
-    //    {
-    //        objectInteract = hit.collider.gameObject;
-    //        if (objectInteract.tag == doActionTag && objectInteract.GetComponent<DoAction>().needItem)
-    //        {
-    //            // bon item alors on fait l'action(if right item do it)
-    //            if (itemTypeold == objectInteract.GetComponent<DoAction>().itemType)
-    //            {
-    //                if (itemIDold == objectInteract.GetComponent<DoAction>().itemID || objectInteract.GetComponent<DoAction>().itemID == null)
-    //                {
-    //                    // bon item(right item)
-    //                    objectInteract.GetComponent<DoAction>().DoActionNow();
-    //                    if (!itemReutilisableold)
-    //                    {
-    //                        Destroy(itemObjectold);
-    //                    }
-    //                }
-    //                else
-    //                {
-    //                    //Debug.Log("Ce n'est pas le bon identifiant de l'objet!");//pas verifier : pas bon identifiant de l'object
-    //                    //infoDisplay.text = objectInteract.GetComponent<DoAction>().textwithoutRightIDItem;
-    //                    StartCoroutine(WaitAndEraseInfo());
-    //                }
-    //            }
-    //            else
-    //            {
-    //                //Debug.Log("Ce n'est pas le bon type d'objet!");//si on n'as pas le bon item utiliser alors erreur. Creer un lien entre itemslots et fpcSupport(if wrong item error)
-    //                infoDisplay.text = "Vous ne pouvez pas utiliser cette objet ici!";
-    //                StartCoroutine(WaitAndEraseInfo());
-    //            }
-    //        }
-    //    }
-    //    StopoldingItem();
-    //}
+        if (Physics.Raycast(ray, out hit, pickupRange))
+        {
+            objectInteract = hit.collider.gameObject;
+            if (objectInteract.tag == doActionTag && objectInteract.GetComponent<DoAction>().needItem)
+            {
+                // bon item alors on fait l'action(if right item do it)
+                if (itemTypeold == objectInteract.GetComponent<DoAction>().itemType)
+                {
+                    if (itemIDold == objectInteract.GetComponent<DoAction>().itemID || objectInteract.GetComponent<DoAction>().itemID == null)
+                    {
+                        // bon item(right item)
+                        objectInteract.GetComponent<DoAction>().DoActionNow();
+                        if (!itemReutilisableold)
+                        {
+                            Destroy(itemObjectold);
+                        }
+                    }
+                    else
+                    {
+                        //Debug.Log("Ce n'est pas le bon identifiant de l'objet!");//pas verifier : pas bon identifiant de l'object
+                        //infoDisplay.text = objectInteract.GetComponent<DoAction>().textwithoutRightIDItem;
+                        StartCoroutine(WaitAndEraseInfo());
+                    }
+                }
+                else
+                {
+                    //Debug.Log("Ce n'est pas le bon type d'objet!");//si on n'as pas le bon item utiliser alors erreur. Creer un lien entre itemslots et fpcSupport(if wrong item error)
+                    infoDisplay.text = "Vous ne pouvez pas utiliser cette objet ici!";
+                    StartCoroutine(WaitAndEraseInfo());
+                }
+            }
+        }
+        StopoldingItem();
+    }
     public void YouAreoldingItem(GameObject itemObject, string itemType, string itemID, Sprite itemSprite, bool itemReutilisable)//type,ID,gameobject en lui mê qui est l'item.
     {
         holdingItem = true;//pourquoi si l'item est utilisé il faudra le detruire
@@ -322,48 +322,48 @@ public class FPCSupport : MonoBehaviour
 
         //blur.enabled = !inventoryOn;
         //fpsComp.enabled = inventoryOn; //fonctionne de façon désinchroniser car il est true au debut et il deveindra false après.
-                                       // gere les options de l'inventaire je veux que quands l'inventaire s'eteind les options de l'inventaire aussi et pas l'inverse.
+        //gere les options de l'inventaire je veux que quands l'inventaire s'eteind les options de l'inventaire aussi et pas l'inverse.
 
-        //if (inventoryOn)
-        //{
-        //    InventoryItemOptions.SetActive(false);
+        if (inventoryOn)
+        {
+            InventoryItemOptions.SetActive(false);
 
-        //}
-        ////gere le curseur.
-        //Cursor.visible = !inventoryOn;
-        //if (inventoryOn)
-        //{
-        //    Cursor.lockState = CursorLockMode.Locked;
-        //}
-        //else { Cursor.lockState = CursorLockMode.None; }
-        //crosshairDisplay.SetActive(inventoryOn);
-
-
+        }
+        //gere le curseur.
+        Cursor.visible = !inventoryOn;
+        if (inventoryOn)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else { Cursor.lockState = CursorLockMode.None; }
+        crosshairDisplay.SetActive(inventoryOn);
 
 
-        //inventoryOn = !inventoryOn; //avec le ! cela veut dire que si inventoryOn est = a false alors il deviendra true et inversement.
+
+
+        inventoryOn = !inventoryOn; //avec le ! cela veut dire que si inventoryOn est = a false alors il deviendra true et inversement.
 
 
     }
 
-    //public void ActiviteItemOptions(GameObject itemSelected)
-    //{
-    //    //InventoryItemOptions.SetActive(true);
-    //    itemObjectold = itemSelected;
-    //    //Acceder au(x) button(s)
-    //    Transform buttonOptions = InventoryItemOptions.transform.GetChild(0);
-    //    //placement des bouttons(options)
-    //    buttonOptions.position = Input.mousePosition;
-    //}
-    //public void DisableItemOptions()
-    //{
-    //    InventoryItemOptions.SetActive(false);
-    //}
-    //public void DropItem()
-    //{
-    //    Destroy(itemObjectold);
-    //    InventoryItemOptions.SetActive(false);
-    //}
+    public void ActiviteItemOptions(GameObject itemSelected)
+    {
+        InventoryItemOptions.SetActive(true);
+        itemObjectold = itemSelected;
+        //Acceder au(x) button(s)
+        Transform buttonOptions = InventoryItemOptions.transform.GetChild(0);
+        //placement des bouttons(options)
+        buttonOptions.position = Input.mousePosition;
+    }
+    public void DisableItemOptions()
+    {
+        InventoryItemOptions.SetActive(false);
+    }
+    public void DropItem()
+    {
+        Destroy(itemObjectold);
+        InventoryItemOptions.SetActive(false);
+    }
     IEnumerator WaitAndEraseInfo()
     {
         infoCoroutineIsRunning = true;

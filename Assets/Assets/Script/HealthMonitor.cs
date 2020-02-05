@@ -15,13 +15,16 @@ public class HealthMonitor : MonoBehaviour
     private Text healthText;
 
     public GameObject Torch;
-    public GameObject Torch1;
+   
 
 
 
     private Light lt;
+   
+   
     
     private RawImage torchImage1, torchImage2, torchImage3, torchImage4, torchImage5;
+    
     public string MapACharger;
 
     public void JeRestartLeJeu()
@@ -42,19 +45,21 @@ public class HealthMonitor : MonoBehaviour
         torchImage4 = GameObject.Find("LifeImage4").GetComponent<RawImage>();
         torchImage5 = GameObject.Find("LifeImage5").GetComponent<RawImage>();
         lt = GameObject.Find("light").GetComponent<Light>();
+       
         
     }
 
-   
+
     //Update is called once per frame
     void Update()
     {
         healthText.text = healthValue.ToString();
         // adapt the size of the torch in the game
         Torch.transform.localScale = new Vector3(healthValue * 0.1f, healthValue * 0.1f, healthValue * 0.1f);
-        Torch1.transform.localScale = new Vector3(healthValue * 0.1f, healthValue * 0.1f, healthValue * 0.1f);
+        
         // adapt the intensity of the torch light in the game
         lt.intensity = 3f * healthValue * 0.2f;
+       
 
         // update the nr of life symbols
         if (healthValue <= 4)
@@ -65,17 +70,14 @@ public class HealthMonitor : MonoBehaviour
             torchImage3.enabled = false;
         if (healthValue <= 1)
             torchImage2.enabled = false;
-         if (healthValue <= 0)
+        if (healthValue <= 0)
         {
-             torchImage1.enabled = false;
-            JeRestartLeJeu();   
+            torchImage1.enabled = false;
+            JeRestartLeJeu();
 
         }
 
-        
-
-
-
+       
 
     }
 }
