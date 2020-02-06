@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class FPCSupport : MonoBehaviour
 {
     public GameObject playerCam;
-    //private SnapshotShaders.Shader.EdgeBlur blur;//pour rendre la page flou
+    private UnityStandardAssets.ImageEffects.Blur blur;//pour rendre la page flou
     private UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpsComp;//pour controler les mouvements du joueur.Le rendre fixe.
 
     public Text infoDisplay;//acceder au composant d'info
@@ -21,7 +21,7 @@ public class FPCSupport : MonoBehaviour
     public string InventoryButton;
     public string InteractButton;
     [Header("Tag List")]
-    public string ItemTag = "item";
+    public string ItemTag = "Item";
     public string doActionTag = "DoAction";
 
     [Header("Crosshair's data")]
@@ -65,8 +65,8 @@ public class FPCSupport : MonoBehaviour
             playerCam = GameObject.FindWithTag("MainCamera");
         }//securiter pour la camera
 
-        //blur = playerCam.GetComponent<UnityStandardAssets.ImageEffects.Blur>();//acceder au script blur
-        //blur.enabled = false;//blur bien désactivé au démarage.Juste un composant on utilise enabled.
+        blur = playerCam.GetComponent<UnityStandardAssets.ImageEffects.Blur>();//acceder au script blur
+        blur.enabled = false;//blur bien désactivé au démarage.Juste un composant on utilise enabled.
         if (infoDisplay == null)
         {
             infoDisplay = GameObject.Find("infoDisplay").GetComponent<Text>();//crosshairdisplay pas renseigner.
@@ -90,7 +90,7 @@ public class FPCSupport : MonoBehaviour
         {
             InventoryItemOptions = GameObject.Find("Inventory_Items_Options");
         }
-            InventoryItemOptions.SetActive(false);
+        InventoryItemOptions.SetActive(false);
 
 
         //if (DialogueBox == null)
@@ -276,7 +276,7 @@ public class FPCSupport : MonoBehaviour
                     else
                     {
                         //Debug.Log("Ce n'est pas le bon identifiant de l'objet!");//pas verifier : pas bon identifiant de l'object
-                        //infoDisplay.text = objectInteract.GetComponent<DoAction>().textwithoutRightIDItem;
+                        infoDisplay.text = objectInteract.GetComponent<DoAction>().textwithoutRightIDItem;
                         StartCoroutine(WaitAndEraseInfo());
                     }
                 }
@@ -320,7 +320,7 @@ public class FPCSupport : MonoBehaviour
         Inventaire.SetActive(!inventoryOn);
         //DialogueBox.SetActive(inventoryOn);
 
-        //blur.enabled = !inventoryOn;
+        blur.enabled = !inventoryOn;
         //fpsComp.enabled = inventoryOn; //fonctionne de façon désinchroniser car il est true au debut et il deveindra false après.
         //gere les options de l'inventaire je veux que quands l'inventaire s'eteind les options de l'inventaire aussi et pas l'inverse.
 

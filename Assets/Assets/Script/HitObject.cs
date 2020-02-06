@@ -41,6 +41,13 @@ public class HitObject : MonoBehaviour
 
         
     }
+    void OnCollisionEnter()
+    {
+        if(gameObject.tag == "Item")
+        {
+
+        }
+    }
 
     
 }
