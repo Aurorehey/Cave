@@ -13,7 +13,7 @@ public class FPCSupport : MonoBehaviour
     public Text infoDisplay;//acceder au composant d'info
     private bool infoCoroutineIsRunning = false;
 
-    public float pickupRange = 3.0f;
+    public float pickupRange = 10.0f;
     private GameObject objectInteract;
 
 
@@ -39,7 +39,7 @@ public class FPCSupport : MonoBehaviour
     [HideInInspector] public bool inventoryOn = false;//variable caché dans l'inspecteur.pas utile priver. il peut etre remplace par private. cette variable permet de savoir si l'inventaire est activé ou non grace à une fonction.
     public Transform itemPrefab;
     public Transform inventorySlots;
-    public int slotCount = 16;
+    public int slotCount = 6;
     // Start is called before the first frame update
     private bool holdingItem = false;
     private GameObject itemObjectold;
@@ -145,12 +145,12 @@ public class FPCSupport : MonoBehaviour
             if (holdingItem)
             {
                 TryToUse();
-                TryToInteract();//lance la fonction TryToInteract.
 
             }
             else
             {
 
+                TryToInteract();//lance la fonction TryToInteract.
             }
 
 
@@ -175,7 +175,7 @@ public class FPCSupport : MonoBehaviour
             {
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer(layerInteract)) //2 eme if va verifier si le collider qu'on a toucher appartient à un objet avec lequel on peut interagir = item,doaction,.....
                 {
-                    crosshairDisplay.GetComponent<Image>().sprite = interactTexture; //cela va aller changer la sorce d'image dans l'inspector.
+                    crosshairDisplay.GetComponent<Image>().sprite = interactTexture; //cela va aller changer la source d'image dans l'inspector.
                 }
                 else//si on ne peut interagir avec l'objet en question.(un mur par exemple).
                 {
@@ -204,7 +204,7 @@ public class FPCSupport : MonoBehaviour
 
                 //pick up 
                 //verifier si l'inventaire est complet
-                if (inventorySlots.childCount == slotCount)
+                if (inventorySlots.childCount == slotCount)//&& !gameObject.tag =="ours")
                 {
                     //Debug.Log("L'inventaire est complet!");
                     infoDisplay.text = "Inventaire est complet!";
@@ -320,8 +320,8 @@ public class FPCSupport : MonoBehaviour
         Inventaire.SetActive(!inventoryOn);
         //DialogueBox.SetActive(inventoryOn);
 
-        blur.enabled = !inventoryOn;
-        //fpsComp.enabled = inventoryOn; //fonctionne de façon désinchroniser car il est true au debut et il deveindra false après.
+        blur.enabled = inventoryOn;
+        fpsComp.enabled = inventoryOn; //fonctionne de façon désinchroniser car il est true au debut et il deveindra false après.
         //gere les options de l'inventaire je veux que quands l'inventaire s'eteind les options de l'inventaire aussi et pas l'inverse.
 
         if (inventoryOn)
@@ -331,7 +331,7 @@ public class FPCSupport : MonoBehaviour
         }
         //gere le curseur.
         Cursor.visible = !inventoryOn;
-        if (inventoryOn)
+        if (!inventoryOn)
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
