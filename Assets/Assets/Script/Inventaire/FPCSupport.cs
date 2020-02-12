@@ -52,7 +52,8 @@ public class FPCSupport : MonoBehaviour
     //private Dialogue dialogue;
     //public GameObject DialogueBox;
 
-    //public string Fin;
+    public string Fin;
+    public string Fin1;
     //public bool finito = false;
 
 
@@ -110,12 +111,16 @@ public class FPCSupport : MonoBehaviour
 
     //    JeQuitteLeJeu();
     //}
+    public void JePerdLeJeu()
+    {
+        SceneManager.LoadScene(Fin);
+    }
 
-    //public void JeQuitteLeJeu()
-    //{
+    public void JeGagneLeJeu()
+    {
 
-    //    SceneManager.LoadScene(Fin);
-    //}
+        SceneManager.LoadScene(Fin1);
+    }
 
 
     // Update is called once per frame
@@ -378,14 +383,18 @@ public class FPCSupport : MonoBehaviour
 
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.tag == "fin")
-    //    {
-    //        Debug.Log("Fin");
-    //        JeQuitteLeJeu();
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "ours" && inventorySlots.childCount == slotCount)
+        {
+            Debug.Log("Fin");
+            JeGagneLeJeu();
 
-    //    }
+        }
+        else
+        {
+            JePerdLeJeu();
+        }
 
-    //}
+    }
 }
