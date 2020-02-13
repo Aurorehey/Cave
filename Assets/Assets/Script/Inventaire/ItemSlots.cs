@@ -46,7 +46,7 @@ public class ItemSlots : MonoBehaviour
         else if (ped.button == PointerEventData.InputButton.Right)
         {
             GameObject player = GameObject.FindWithTag("Player");
-            player.GetComponent<FPCSupport>().ActiviteItemOptions(this.gameObject);
+            //player.GetComponent<FPCSupport>().ActiviteItemOptions(this.gameObject);
         }
     }
     void TakeItem()//peut enlever le publique car plus appeler par eventtrigger

@@ -26,29 +26,36 @@ public class HitObject : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
+        if (gameObject.tag == "Danger")
+        {
 
         Debug.LogWarning("trigger");
 
         //collectSound.Play ();
         //AudioSource.PlayClipAtPoint(clip,ThisHeart.transform.position);
-        if (HealthMonitor.healthValue > 0)
-            HealthMonitor.healthValue -= 1;
+            if (HealthMonitor.healthValue > 0)
+            
+                HealthMonitor.healthValue -= 1;
 
-
+            
         ThisObject.SetActive(false);
+        }
+
+
+
 
         
     }
-    void OnCollisionEnter()
-    {
-        if(gameObject.tag == "Item")
-        {
+    //void OnCollisionEnter()
+    //{
+    //    if(gameObject.tag == "Item")
+    //    {
 
-        }
-    }
+    //    }
+    //}
 
-    
+   
 }
 

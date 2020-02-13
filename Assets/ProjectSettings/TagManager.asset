@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Item
   - ours
+  - Danger
   layers:
   - Default
   - TransparentFX

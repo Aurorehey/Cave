@@ -55,6 +55,7 @@ public class FPCSupport : MonoBehaviour
     public string Fin;
     public string Fin1;
     //public bool finito = false;
+    //public GameObject ThisObject;
 
 
     void Start()
@@ -329,11 +330,11 @@ public class FPCSupport : MonoBehaviour
         fpsComp.enabled = inventoryOn; //fonctionne de façon désinchroniser car il est true au debut et il deveindra false après.
         //gere les options de l'inventaire je veux que quands l'inventaire s'eteind les options de l'inventaire aussi et pas l'inverse.
 
-        if (inventoryOn)
-        {
-            InventoryItemOptions.SetActive(false);
+        //if (inventoryOn)
+        //{
+        //    InventoryItemOptions.SetActive(false);
 
-        }
+        //}
         //gere le curseur.
         Cursor.visible = !inventoryOn;
         if (!inventoryOn)
@@ -351,24 +352,24 @@ public class FPCSupport : MonoBehaviour
 
     }
 
-    public void ActiviteItemOptions(GameObject itemSelected)
-    {
-        InventoryItemOptions.SetActive(true);
-        itemObjectold = itemSelected;
-        //Acceder au(x) button(s)
-        Transform buttonOptions = InventoryItemOptions.transform.GetChild(0);
-        //placement des bouttons(options)
-        buttonOptions.position = Input.mousePosition;
-    }
-    public void DisableItemOptions()
-    {
-        InventoryItemOptions.SetActive(false);
-    }
-    public void DropItem()
-    {
-        Destroy(itemObjectold);
-        InventoryItemOptions.SetActive(false);
-    }
+    //public void ActiviteItemOptions(GameObject itemSelected)
+    //{
+    //    InventoryItemOptions.SetActive(true);
+    //    itemObjectold = itemSelected;
+    //    //Acceder au(x) button(s)
+    //    Transform buttonOptions = InventoryItemOptions.transform.GetChild(0);
+    //    //placement des bouttons(options)
+    //    buttonOptions.position = Input.mousePosition;
+    //}
+    //public void DisableItemOptions()
+    //{
+    //    InventoryItemOptions.SetActive(false);
+    //}
+    //public void DropItem()
+    //{
+    //    Destroy(itemObjectold);
+    //    InventoryItemOptions.SetActive(false);
+    //}
     IEnumerator WaitAndEraseInfo()
     {
         infoCoroutineIsRunning = true;
@@ -385,7 +386,7 @@ public class FPCSupport : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "ours" && inventorySlots.childCount == slotCount)
+        if (gameObject.tag == "ours" && inventorySlots.childCount == slotCount)
         {
             Debug.Log("Fin");
             JeGagneLeJeu();
@@ -396,5 +397,21 @@ public class FPCSupport : MonoBehaviour
             JePerdLeJeu();
         }
 
+        //if (other.gameObject.tag == "Danger")
+        //{
+
+        //    Debug.LogWarning("trigger");
+
+        //    //collectSound.Play ();
+        //    //AudioSource.PlayClipAtPoint(clip,ThisHeart.transform.position);
+        //    if (HealthMonitor.healthValue > 0)
+        //    {
+
+        //        HealthMonitor.healthValue -= 1;
+
+
+        //        ThisObject.SetActive(false);
+        //    }
+        //}
     }
 }
