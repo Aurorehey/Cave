@@ -31,7 +31,7 @@ public class HitObject : MonoBehaviour
         if (gameObject.tag == "Danger")
         {
 
-        Debug.LogWarning("trigger");
+            Debug.LogWarning("collision");
 
         //collectSound.Play ();
         //AudioSource.PlayClipAtPoint(clip,ThisHeart.transform.position);
@@ -39,8 +39,8 @@ public class HitObject : MonoBehaviour
             
                 HealthMonitor.healthValue -= 1;
 
-            
-        ThisObject.SetActive(false);
+                
+            ThisObject.SetActive(false);
         }
 
 

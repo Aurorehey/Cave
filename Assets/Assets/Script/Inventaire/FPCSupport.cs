@@ -55,7 +55,9 @@ public class FPCSupport : MonoBehaviour
     public string Fin;
     public string Fin1;
     //public bool finito = false;
-    //public GameObject ThisObject;
+    public string layerDanger = "Danger";
+
+
 
 
     void Start()
@@ -392,26 +394,9 @@ public class FPCSupport : MonoBehaviour
             JeGagneLeJeu();
 
         }
-        else
-        {
-            JePerdLeJeu();
-        }
-
-        //if (other.gameObject.tag == "Danger")
-        //{
-
-        //    Debug.LogWarning("trigger");
-
-        //    //collectSound.Play ();
-        //    //AudioSource.PlayClipAtPoint(clip,ThisHeart.transform.position);
-        //    if (HealthMonitor.healthValue > 0)
-        //    {
-
-        //        HealthMonitor.healthValue -= 1;
-
-
-        //        ThisObject.SetActive(false);
-        //    }
-        //}
+        JePerdLeJeu();
+        
     }
+        
+
 }
