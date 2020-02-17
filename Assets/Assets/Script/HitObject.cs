@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 
@@ -9,9 +10,10 @@ public class HitObject : MonoBehaviour
 {
     
     public GameObject ThisObject;
-   
+    
 
     // Start is called before the first frame update
+     
     void Start()
     {
         //Debug.LogWarning("test");
@@ -31,7 +33,7 @@ public class HitObject : MonoBehaviour
         if (gameObject.tag == "Danger")
         {
 
-            Debug.LogWarning("collision");
+            Debug.LogWarning("Trigger");
 
         //collectSound.Play ();
         //AudioSource.PlayClipAtPoint(clip,ThisHeart.transform.position);
@@ -43,6 +45,7 @@ public class HitObject : MonoBehaviour
             ThisObject.SetActive(false);
         }
 
+        
 
 
 

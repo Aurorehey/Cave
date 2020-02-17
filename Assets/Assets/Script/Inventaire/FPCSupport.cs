@@ -55,7 +55,7 @@ public class FPCSupport : MonoBehaviour
     public string Fin;
     public string Fin1;
     //public bool finito = false;
-    public string layerDanger = "Danger";
+    
 
 
 
@@ -388,6 +388,7 @@ public class FPCSupport : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+       
         if (gameObject.tag == "ours" && inventorySlots.childCount == slotCount)
         {
             Debug.Log("Fin");
@@ -396,7 +397,6 @@ public class FPCSupport : MonoBehaviour
         }
         JePerdLeJeu();
         
-    }
-        
 
+    }
 }
