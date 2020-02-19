@@ -55,7 +55,7 @@ public class FPCSupport : MonoBehaviour
     public string Fin;
     public string Fin1;
     //public bool finito = false;
-    
+   
 
 
 
@@ -103,7 +103,7 @@ public class FPCSupport : MonoBehaviour
         //}
         //    DialogueBox.SetActive(true);
 
-
+       
 
 
     }
@@ -116,13 +116,13 @@ public class FPCSupport : MonoBehaviour
     //}
     public void JePerdLeJeu()
     {
-        SceneManager.LoadScene(Fin);
+        SceneManager.LoadScene(Fin1);
     }
 
     public void JeGagneLeJeu()
     {
 
-        SceneManager.LoadScene(Fin1);
+        SceneManager.LoadScene(Fin);
     }
 
 
@@ -169,8 +169,9 @@ public class FPCSupport : MonoBehaviour
 
         //}
 
+        
 
-
+            
 
 
 
@@ -388,15 +389,40 @@ public class FPCSupport : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-       
-        if (gameObject.tag == "ours" && inventorySlots.childCount == slotCount)
+
+        if (other.gameObject.tag == "ours" && inventorySlots.childCount == slotCount)
         {
-            Debug.Log("Fin");
+
             JeGagneLeJeu();
-
         }
-        JePerdLeJeu();
-        
-
     }
+
+
+    private void OnTriggerExit(Collider other)
+        {
+        JePerdLeJeu();
+       
+    }
+        //JePerdLeJeu();
+
+        //if(other.gameObject.tag =="ours")
+        //{
+        //    JePerdLeJeu();
+        //}
+
+
+        //}
+        
+            //JePerdLeJeu();
+    //}
+    //private void OnTriggerExit(Collider other)
+    //{
+
+    //    if (other.gameObject.tag == "ours")
+    //    {
+
+    //    }
+    //}
+   
+
 }

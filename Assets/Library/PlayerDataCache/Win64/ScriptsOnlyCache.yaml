@@ -24,8 +24,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -34,6 +36,7 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.AspectRatioFitter
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
@@ -62,27 +65,27 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9914}
+      Script: {instanceID: 9902}
     - Class: 114
-      Script: {instanceID: 10130}
+      Script: {instanceID: 10122}
     - Class: 114
-      Script: {instanceID: 10180}
+      Script: {instanceID: 10170}
     - Class: 114
-      Script: {instanceID: 10370}
+      Script: {instanceID: 10360}
     - Class: 114
-      Script: {instanceID: 10658}
+      Script: {instanceID: 10648}
     - Class: 114
-      Script: {instanceID: 10692}
+      Script: {instanceID: 10680}
     - Class: 114
-      Script: {instanceID: 10800}
+      Script: {instanceID: 10782}
     - Class: 114
-      Script: {instanceID: 11206}
+      Script: {instanceID: 11190}
     - Class: 114
-      Script: {instanceID: 11834}
+      Script: {instanceID: 11802}
     - Class: 114
-      Script: {instanceID: 12322}
+      Script: {instanceID: 12266}
     - Class: 114
-      Script: {instanceID: 12376}
+      Script: {instanceID: 12320}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -117,25 +120,25 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9914}
+      Script: {instanceID: 9902}
     - Class: 114
-      Script: {instanceID: 10130}
+      Script: {instanceID: 10122}
     - Class: 114
-      Script: {instanceID: 10180}
+      Script: {instanceID: 10170}
     - Class: 114
-      Script: {instanceID: 10658}
+      Script: {instanceID: 10648}
     - Class: 114
-      Script: {instanceID: 10692}
+      Script: {instanceID: 10680}
     - Class: 114
-      Script: {instanceID: 11206}
+      Script: {instanceID: 11190}
     - Class: 114
-      Script: {instanceID: 11834}
+      Script: {instanceID: 11802}
     - Class: 114
-      Script: {instanceID: 12310}
+      Script: {instanceID: 12254}
     - Class: 114
-      Script: {instanceID: 12322}
+      Script: {instanceID: 12266}
     - Class: 114
-      Script: {instanceID: 12376}
+      Script: {instanceID: 12320}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -170,27 +173,27 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9914}
+      Script: {instanceID: 9902}
     - Class: 114
-      Script: {instanceID: 10130}
+      Script: {instanceID: 10122}
     - Class: 114
-      Script: {instanceID: 10180}
+      Script: {instanceID: 10170}
     - Class: 114
-      Script: {instanceID: 10370}
+      Script: {instanceID: 10360}
     - Class: 114
-      Script: {instanceID: 10658}
+      Script: {instanceID: 10648}
     - Class: 114
-      Script: {instanceID: 10692}
+      Script: {instanceID: 10680}
     - Class: 114
-      Script: {instanceID: 11206}
+      Script: {instanceID: 11190}
     - Class: 114
-      Script: {instanceID: 11834}
+      Script: {instanceID: 11802}
     - Class: 114
-      Script: {instanceID: 12310}
+      Script: {instanceID: 12254}
     - Class: 114
-      Script: {instanceID: 12322}
+      Script: {instanceID: 12266}
     - Class: 114
-      Script: {instanceID: 12376}
+      Script: {instanceID: 12320}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -225,25 +228,25 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9914}
+      Script: {instanceID: 9902}
     - Class: 114
-      Script: {instanceID: 10130}
+      Script: {instanceID: 10122}
     - Class: 114
-      Script: {instanceID: 10180}
+      Script: {instanceID: 10170}
     - Class: 114
-      Script: {instanceID: 10658}
+      Script: {instanceID: 10648}
     - Class: 114
-      Script: {instanceID: 10692}
+      Script: {instanceID: 10680}
     - Class: 114
-      Script: {instanceID: 11206}
+      Script: {instanceID: 11190}
     - Class: 114
-      Script: {instanceID: 11834}
+      Script: {instanceID: 11802}
     - Class: 114
-      Script: {instanceID: 12310}
+      Script: {instanceID: 12254}
     - Class: 114
-      Script: {instanceID: 12322}
+      Script: {instanceID: 12266}
     - Class: 114
-      Script: {instanceID: 12376}
+      Script: {instanceID: 12320}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -302,41 +305,43 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9914}
+      Script: {instanceID: 9902}
     - Class: 114
-      Script: {instanceID: 10130}
+      Script: {instanceID: 10122}
     - Class: 114
-      Script: {instanceID: 10180}
+      Script: {instanceID: 10170}
     - Class: 114
-      Script: {instanceID: 10248}
+      Script: {instanceID: 10238}
     - Class: 114
-      Script: {instanceID: 10438}
+      Script: {instanceID: 10400}
     - Class: 114
-      Script: {instanceID: 10692}
+      Script: {instanceID: 10432}
     - Class: 114
-      Script: {instanceID: 10836}
+      Script: {instanceID: 10680}
     - Class: 114
-      Script: {instanceID: 10914}
+      Script: {instanceID: 10818}
     - Class: 114
-      Script: {instanceID: 10982}
+      Script: {instanceID: 10900}
     - Class: 114
-      Script: {instanceID: 11182}
+      Script: {instanceID: 10968}
     - Class: 114
-      Script: {instanceID: 11206}
+      Script: {instanceID: 11168}
     - Class: 114
-      Script: {instanceID: 11228}
+      Script: {instanceID: 11190}
     - Class: 114
-      Script: {instanceID: 11564}
+      Script: {instanceID: 11214}
     - Class: 114
-      Script: {instanceID: 11834}
+      Script: {instanceID: 11542}
     - Class: 114
-      Script: {instanceID: 11958}
+      Script: {instanceID: 11802}
     - Class: 114
-      Script: {instanceID: 12106}
+      Script: {instanceID: 11916}
     - Class: 114
-      Script: {instanceID: 12278}
+      Script: {instanceID: 12056}
     - Class: 114
-      Script: {instanceID: 12322}
+      Script: {instanceID: 12220}
+    - Class: 114
+      Script: {instanceID: 12266}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -1464,7 +1469,7 @@ ScriptsOnlyBuild:
     className: Ball
   - hash:
       serializedVersion: 2
-      Hash: 0e9bcdc2f2cceb748bde9caa683eabe9
+      Hash: ee447283f3bf3540acb290af6674f8aa
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FPCSupport
@@ -1608,6 +1613,12 @@ ScriptsOnlyBuild:
     className: ColorCorrectionLookup
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: UnityEngine.TestRunner.dll
+    namespaceName: UnityEngine.TestRunner.Utils
+    className: TestRunCallbackListener
+  - hash:
+      serializedVersion: 2
       Hash: b4d278bcca1055fd3c9791d00a07fcfd
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner
@@ -1684,17 +1695,11 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.Utility
     className: AutoMobileShaderSwitch
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: UnityEngine.TestRunner.dll
-    namespaceName: UnityEngine.TestRunner.Utils
-    className: TestRunCallbackListener
   platform: 19
   scenePathNames:
   - Assets/Cave/Scene/EncranAcceuil.unity
   - Assets/Cave/Scene/sample_test.unity
-  - Assets/Cave/Scene/fin plus de torch.unity
   - "Assets/Cave/Scene/Fin ours n\xE9gatif.unity"
+  - Assets/Cave/Scene/fin plus de torch.unity
   - Assets/Cave/Scene/Fin ours possitif.unity
   playerPath: F:/Program Files/Cave/Build/Assets.exe

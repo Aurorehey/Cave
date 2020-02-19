@@ -74,14 +74,14 @@ public class HealthMonitor : MonoBehaviour
         {
             torchImage1.enabled = false;
             
-            //JeRestartLeJeu();
-
-        }
-
-        if(healthValue <= 0)
-        {
             JeRestartLeJeu();
+
         }
+
+        //if(healthValue <= 0)
+        //{
+        //    JeRestartLeJeu();
+        //}
 
        
 

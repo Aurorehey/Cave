@@ -30,8 +30,8 @@ public class HitObject : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (gameObject.tag == "Danger")
-        {
+        //if (gameObject.tag == "Danger")
+        //{
 
             Debug.LogWarning("Trigger");
 
@@ -43,7 +43,7 @@ public class HitObject : MonoBehaviour
 
                 
             ThisObject.SetActive(false);
-        }
+        //}
 
         
 
