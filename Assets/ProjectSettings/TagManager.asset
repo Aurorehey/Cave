@@ -9,6 +9,7 @@ TagManager:
   - Danger
   - finito
   - ours1
+  - cursor
   layers:
   - Default
   - TransparentFX

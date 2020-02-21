@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class FPCSupport : MonoBehaviour
 {
-    public GameObject playerCam;
+    public Camera camera; //playerCam
     private UnityStandardAssets.ImageEffects.Blur blur;//pour rendre la page flou
     private UnityStandardAssets.Characters.FirstPerson.FirstPersonController fpsComp;//pour controler les mouvements du joueur.Le rendre fixe.
 
     public Text infoDisplay;//acceder au composant d'info
     private bool infoCoroutineIsRunning = false;
 
-    public float pickupRange = 10.0f;
+    //public float pickupRange = 10.0f;
     private GameObject objectInteract;
 
 
@@ -55,6 +55,9 @@ public class FPCSupport : MonoBehaviour
     public string Fin;
     public string Fin1;
     //public bool finito = false;
+
+    
+    
    
 
 
@@ -62,15 +65,15 @@ public class FPCSupport : MonoBehaviour
 
     void Start()
     {
+        
 
+        //if (playerCam == null)
+        //{
+        //    playerCam = Camera.FindWithTag("MainCamera");
+        //}//securiter pour la camera
 
-        if (playerCam == null)
-        {
-            playerCam = GameObject.FindWithTag("MainCamera");
-        }//securiter pour la camera
-
-        blur = playerCam.GetComponent<UnityStandardAssets.ImageEffects.Blur>();//acceder au script blur
-        blur.enabled = false;//blur bien désactivé au démarage.Juste un composant on utilise enabled.
+        //blur = playerCam.GetComponent<UnityStandardAssets.ImageEffects.Blur>();//acceder au script blur
+        //blur.enabled = false;//blur bien désactivé au démarage.Juste un composant on utilise enabled.
         if (infoDisplay == null)
         {
             infoDisplay = GameObject.Find("infoDisplay").GetComponent<Text>();//crosshairdisplay pas renseigner.
@@ -125,6 +128,7 @@ public class FPCSupport : MonoBehaviour
         SceneManager.LoadScene(Fin);
     }
 
+   
 
     // Update is called once per frame
     void Update()
@@ -177,14 +181,16 @@ public class FPCSupport : MonoBehaviour
 
         if (!useSpecialTexture)
         {
-            Ray ray = playerCam.GetComponent<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));//lancer un rayon devant le joueur de la distance pickupRnage si il y a pas un item devant lui.
+            Ray ray = camera.ScreenPointToRay(Input.mousePosition);//playerCam.GetComponent<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));//lancer un rayon devant le joueur de la distance pickupRnage si il y a pas un item devant lui.
             RaycastHit hit;//hit point d'impact du rayon avec un colider
 
-            if (Physics.Raycast(ray, out hit, pickupRange))//est ce que le rayon touche un collider si oui on a le 1er if
+
+            if (Physics.Raycast(ray, out hit))//pickupRange))//est ce que le rayon touche un collider si oui on a le 1er if
             {
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer(layerInteract)) //2 eme if va verifier si le collider qu'on a toucher appartient à un objet avec lequel on peut interagir = item,doaction,.....
                 {
-                    crosshairDisplay.GetComponent<Image>().sprite = interactTexture; //cela va aller changer la source d'image dans l'inspector.
+                    crosshairDisplay.GetComponent<Image>().sprite = interactTexture;//cela va aller changer la source d'image dans l'inspector.
+                    
                 }
                 else//si on ne peut interagir avec l'objet en question.(un mur par exemple).
                 {
@@ -202,10 +208,10 @@ public class FPCSupport : MonoBehaviour
 
     void TryToInteract()
     {
-        Ray ray = playerCam.GetComponent<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));//lancer un rayon devant le joueur de la distance pickupRnage si il y a pas un item devant lui.
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);//lancer un rayon devant le joueur de la distance pickupRnage si il y a pas un item devant lui.
         RaycastHit hit;//hit point d'impact du rayon avec un colider
 
-        if (Physics.Raycast(ray, out hit, pickupRange))
+        if (Physics.Raycast(ray, out hit))//pickupRange))
         {
             objectInteract = hit.collider.gameObject;
             if (objectInteract.tag == ItemTag)
@@ -262,10 +268,10 @@ public class FPCSupport : MonoBehaviour
     }
     void TryToUse()
     {
-        Ray ray = playerCam.GetComponent<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));//lancer un rayon devant le joueur de la distance pickupRnage si il y a pas un item devant lui.
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);//lancer un rayon devant le joueur de la distance pickupRnage si il y a pas un item devant lui.
         RaycastHit hit;//hit point d'impact du rayon avec un colider
 
-        if (Physics.Raycast(ray, out hit, pickupRange))
+        if (Physics.Raycast(ray, out hit))//pickupRange))
         {
             objectInteract = hit.collider.gameObject;
             if (objectInteract.tag == doActionTag && objectInteract.GetComponent<DoAction>().needItem)
@@ -392,7 +398,7 @@ public class FPCSupport : MonoBehaviour
 
         if (other.gameObject.tag == "ours" && inventorySlots.childCount == slotCount)
         {
-
+           
             JeGagneLeJeu();
         }
     }
