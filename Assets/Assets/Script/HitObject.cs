@@ -38,14 +38,18 @@ public class HitObject : MonoBehaviour
         //collectSound.Play ();
         //AudioSource.PlayClipAtPoint(clip,ThisHeart.transform.position);
             if (HealthMonitor.healthValue > 0)
+        
+
+               
+            HealthMonitor.healthValue -= 1;
+            ThisObject.SetActive(false);
+        
             
-                HealthMonitor.healthValue -= 1;
 
                 
-            ThisObject.SetActive(false);
         //}
 
-        
+       
 
 
 

@@ -173,9 +173,8 @@ public class FPCSupport : MonoBehaviour
 
         //}
 
-        
 
-            
+
 
 
 
@@ -335,7 +334,7 @@ public class FPCSupport : MonoBehaviour
         Inventaire.SetActive(!inventoryOn);
         //DialogueBox.SetActive(inventoryOn);
 
-        blur.enabled = inventoryOn;
+       //blur.enabled = inventoryOn;
         fpsComp.enabled = inventoryOn; //fonctionne de façon désinchroniser car il est true au debut et il deveindra false après.
         //gere les options de l'inventaire je veux que quands l'inventaire s'eteind les options de l'inventaire aussi et pas l'inverse.
 

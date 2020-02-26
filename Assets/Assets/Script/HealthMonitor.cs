@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class HealthMonitor : MonoBehaviour
 {
-
+    //float timeLeft = 10.0f;
     public  static int healthValue = 5;
     
 
@@ -75,15 +75,25 @@ public class HealthMonitor : MonoBehaviour
             torchImage1.enabled = false;
             
             JeRestartLeJeu();
+            
 
         }
+
+        //timeLeft -= Time.deltaTime;
+
+        //if (timeLeft < 0)
+        //{
+
+        //    lt.intensity--;
+        //}
+
 
         //if(healthValue <= 0)
         //{
         //    JeRestartLeJeu();
         //}
 
-       
+
 
     }
 }

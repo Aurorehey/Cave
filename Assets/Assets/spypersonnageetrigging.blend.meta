@@ -260,7 +260,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 3
@@ -1403,7 +1403,7 @@ ModelImporter:
     - name: forearm.L
       parentName: upper_arm.L
       position: {x: -0.0000011604279, y: 0.25281522, z: -0.00000022351745}
-      rotation: {x: 0.0074147386, y: 0.11349653, z: -0.0028759376, w: 0.99350667}
+      rotation: {x: 0.0074147377, y: 0.11349653, z: -0.0028759374, w: 0.99350667}
       scale: {x: 1.0000001, y: 0.99999994, z: 1}
     - name: hand.L
       parentName: forearm.L
@@ -1578,7 +1578,7 @@ ModelImporter:
     - name: thumb.01.R
       parentName: palm.01.R
       position: {x: 0.0030715088, y: -0.008147973, z: 0.02379531}
-      rotation: {x: -0.27069938, y: 0.52176046, z: 0.42490688, w: 0.6884344}
+      rotation: {x: -0.2706994, y: 0.5217605, z: 0.4249069, w: 0.6884345}
       scale: {x: 1, y: 0.9999997, z: 0.9999999}
     - name: thumb.02.R
       parentName: thumb.01.R
@@ -1658,7 +1658,7 @@ ModelImporter:
     - name: f_pinky.02.R
       parentName: f_pinky.01.R
       position: {x: 0.000002087094, y: 0.028370222, z: 0.0000027529895}
-      rotation: {x: 0.036937848, y: -0.0067762868, z: 0.00603582, w: 0.99927634}
+      rotation: {x: 0.03693785, y: -0.0067762868, z: 0.0060358206, w: 0.99927634}
       scale: {x: 1.0000001, y: 0.99999994, z: 1}
     - name: f_pinky.03.R
       parentName: f_pinky.02.R
