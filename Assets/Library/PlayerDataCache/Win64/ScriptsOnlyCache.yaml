@@ -24,10 +24,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -316,6 +314,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 10400}
     - Class: 114
       Script: {instanceID: 10432}
+    - Class: 114
+      Script: {instanceID: 10648}
     - Class: 114
       Script: {instanceID: 10680}
     - Class: 114
@@ -1469,7 +1469,7 @@ ScriptsOnlyBuild:
     className: Ball
   - hash:
       serializedVersion: 2
-      Hash: ee447283f3bf3540acb290af6674f8aa
+      Hash: 06cc78d9f41f2de73f4c50002c2d023b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FPCSupport
